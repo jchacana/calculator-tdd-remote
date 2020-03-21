@@ -14,7 +14,6 @@ public class StringCalculatorShould {
         Assert.assertEquals(0, stringCalculator.add(""));
     }
 
-
     @Test
     @Parameters({
             "4, 4",
@@ -26,4 +25,9 @@ public class StringCalculatorShould {
         Assert.assertEquals(expected, stringCalculator.add(number));
     }
 
+    @Test
+    public void returnThreeGivenTwoStringNumbersSeparatedByComa(){
+        StringCalculator stringCalculator = new StringCalculator();
+        Assert.assertEquals(3, stringCalculator.add("1,2"));
+    }
 }
