@@ -30,4 +30,10 @@ public class StringCalculatorShould {
         StringCalculator stringCalculator = new StringCalculator();
         Assert.assertEquals(3, stringCalculator.add("1,2"));
     }
+
+    @Test
+    public void returnFourtyFiveWhenGettingNumbersFromOneToNine(){
+        StringCalculator stringCalculator = new StringCalculator();
+        Assert.assertEquals(45, stringCalculator.add("1,2,3,4,5,6,7,8,9"));
+    }
 }
