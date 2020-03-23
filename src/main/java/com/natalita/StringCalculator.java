@@ -3,12 +3,16 @@ package com.natalita;
 import java.util.Arrays;
 
 public class StringCalculator {
+
+
+    public static final String COMA = ",";
+
     public int add(String numbers) {
         if(numbers.isEmpty())
             return 0;
-        numbers = numbers.replace("\n", ",");
-        if(numbers.contains(",")){
-            return getSumFromStringNumbers(numbers.split(","));
+        numbers = numbers.replace("\n", COMA);
+        if(numbers.contains(COMA)){
+            return getSumFromStringNumbers(numbers.split(COMA));
         }
         return Integer.parseInt(numbers);
     }
