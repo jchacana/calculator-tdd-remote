@@ -6,6 +6,7 @@ public class StringCalculator {
     public int add(String numbers) {
         if(numbers.isEmpty())
             return 0;
+        numbers = numbers.replace("\n", ",");
         if(numbers.contains(",")){
             return getSumFromStringNumbers(numbers.split(","));
         }
@@ -17,4 +18,5 @@ public class StringCalculator {
                 .mapToInt(value -> Integer.parseInt(value))
                 .sum();
     }
+
 }

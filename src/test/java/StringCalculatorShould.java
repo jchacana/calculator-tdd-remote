@@ -36,4 +36,10 @@ public class StringCalculatorShould {
         StringCalculator stringCalculator = new StringCalculator();
         Assert.assertEquals(45, stringCalculator.add("1,2,3,4,5,6,7,8,9"));
     }
+
+    @Test
+    public void returnSumWhenUsingNewLineSeparator() {
+        StringCalculator stringCalculator = new StringCalculator();
+        Assert.assertEquals(6, stringCalculator.add("1\n2,3"));
+    }
 }
