@@ -52,4 +52,9 @@ public class StringCalculatorShould {
         assertEquals(3, stringCalculator.add("//;\n1;2"));
     }
 
+    @Test
+    public void returnSumWhenUsingCustomSeparator2() {
+        assertEquals(3, stringCalculator.add("//;r\n1;r2"));
+    }
+
 }

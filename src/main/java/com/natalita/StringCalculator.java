@@ -5,22 +5,28 @@ import java.util.Arrays;
 public class StringCalculator {
 
 
-    public static final String COMA = ",";
+    public static final String COMA_OR_NEWLINE = ",|\n";
+    public static final String NEWLINE = "\n";
+    public static final String PREFIX = "//";
 
-    public int add(String numbers) {
-        String separator = COMA;
-        if(numbers.isEmpty())
+    public int add(String input) {
+        if(input.isEmpty())
             return 0;
-        if(numbers.startsWith("//")) {
-            String[] split = numbers.split("\n");// --> [//;][1;2]
-            separator = split[0].substring(2);
-            numbers = split[1];
+
+        String separator = COMA_OR_NEWLINE;
+        if(input.startsWith(PREFIX)) {
+            separator = identifySeparator(input);
+            input = getNumbers(input);
         }
-        numbers = numbers.replace("\n", separator);
-        if(numbers.contains(separator)){
-            return getSumFromStringNumbers(numbers.split(separator));
-        }
-        return Integer.parseInt(numbers);
+        return getSumFromStringNumbers(input.split(separator));
+    }
+
+    private String getNumbers(String input) {
+        return input.split(NEWLINE)[1];
+    }
+
+    private String identifySeparator(String numbers) {
+        return numbers.substring(PREFIX.length(), numbers.indexOf(NEWLINE));
     }
 
     private int getSumFromStringNumbers(String[] numbers) {
